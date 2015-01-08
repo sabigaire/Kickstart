@@ -1,0 +1,45 @@
+<h1>Project Database</h1>
+
+ <%=link_to "Add new project", new_project_path%> </br>
+ <%=link_to "Top Hits", top_hits_projects_path%> 
+
+<table border="1" width="100%">
+	<tr>
+		<td>
+			Title
+		</td>
+		<td>
+			Description
+		</td>
+		<td>
+			Abstract	
+		</td>
+		<td>
+			Budget
+		</td>
+		<td>
+			Option	
+		</td>
+		<td>
+			Delete
+		</td>
+	</tr>
+
+	
+		<% @projects.each do |project|%>
+		<tr>
+			<td> <%=project.title%> </td> 
+
+		 	<td> <%=project.description%> </td> 
+		 	<td> <%=project.abstract%> </td> 
+		 	<td> <%=project.budget%> </td> 
+
+		 	<td> <%=link_to "edit", edit_project_path(project.id)%> </td>
+		 	<td> <%=link_to "delete", project_path(project.id), method: 'delete', confirm: 'Are you sure you want to delete?' %> </td>
+		 	<td> <%=link_to "View Details", projects_path %></td> </br> </br>
+		 </tr>
+
+		 	
+		<%end%>
+	
+</table>

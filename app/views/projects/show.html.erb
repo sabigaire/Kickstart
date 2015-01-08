@@ -1,0 +1,34 @@
+<table border="1" width="100%">
+	<tr>
+		<td>
+			Title
+		</td>
+		<td>
+			Description
+		</td>
+		<td>
+			Abstract	
+		</td>
+		<td>
+			Budget
+		</td>
+		<td>
+			Option	
+		</td>
+		<td>
+			Delete
+		</td>
+	</tr>
+
+	
+		<% @projects.each do |project|%>
+		<tr>
+			<td> <%=project.title%> </td> 
+
+		 	<td> <%=project.description%> </td> 
+		 	<td> <%=project.abstract%> </td> 
+		 	<td> <%=project.budget%> </td> 
+
+		 	<td> <%=link_to "edit", edit_project_path(project.id)%> </td>
+		 	<td> <%=link_to "delete", project_path(project.id), method: 'delete', confirm: 'Are you sure you want to delete?' %> </td>
+		 <% end %>
